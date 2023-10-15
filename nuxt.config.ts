@@ -1,8 +1,33 @@
 import presetIcons from '@unocss/preset-icons'
 
 export default defineNuxtConfig({
+  app: {
+    // head
+    head: {
+      title: 'MonsterABC',
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          name: 'baidu-site-verification',
+          content: 'codeva-dDJttuF1lK',
+        },
+        {
+          name: 'google-site-verification',
+          content: 'NhwUG7PCreYIU7GAF52lOSQWZ4r10z9KdCj1KwMnPPo',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'MonsterABC 怪兽英语 随时随地开启在线课程',
+        },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    },
+  },
   srcDir: 'src',
   devtools: true,
+  // css
+  css: ['~/assets/scss/index.scss'],
   modules: [
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
@@ -15,6 +40,14 @@ export default defineNuxtConfig({
     // https://github.com/huntersofbook/huntersofbook/tree/main/packages/naive-ui-nuxt
     '@huntersofbook/naive-ui-nuxt',
   ],
+  // vueuse
+  vueuse: {
+    ssrHandlers: true,
+  },
+  // colorMode
+  colorMode: {
+    classSuffix: '',
+  },
   build: {
     transpile: ['@headlessui/vue'],
   },
@@ -79,6 +112,27 @@ export default defineNuxtConfig({
 
   vite: {
     logLevel: 'info',
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/scss/element/index.scss" as element;',
+        },
+      },
+    },
+    server: {
+      proxy: {
+        '^/api': {
+          target: 'https://manager.islepal.cn/', // 这里是接口地址
+          changeOrigin: true,
+        },
+      },
+    },
+  },
+
+  elementPlus: {
+    icon: 'ElIcon',
+    importStyle: 'scss',
+    // themes: ["dark"],
   },
 
   postcss: {

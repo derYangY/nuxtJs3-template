@@ -7,10 +7,12 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
+    "preview": "nuxi preview",
     "generate": "nuxi generate",
     "start": "node .output/server/index.mjs",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "postinstall": "nuxi prepare"
   },
   "dependencies": {
     "@headlessui/vue": "1.7.16",
@@ -20,9 +22,14 @@
     "@tailwindcss/aspect-ratio": "0.4.2",
     "@tailwindcss/forms": "0.5.6",
     "@tailwindcss/typography": "0.5.9",
-    "pinia": "2.1.6"
+    "pinia": "2.1.6",
+    "@element-plus/icons-vue": "^2.1.0",
+    "element-plus": "^2.3.6"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.5",
+    "@nuxtjs/color-mode": "^3.2.0",
+    "@pinia/nuxt": "^0.4.11",
     "@antfu/eslint-config": "0.41.0",
     "@iconify-json/carbon": "1.1.20",
     "@iconify-json/ic": "1.1.14",
@@ -40,5 +47,14 @@
     "sass": "1.66.1",
     "sass-loader": "13.3.2",
     "typescript": "5.2.2"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack",
+        "vite",
+        "vue"
+      ]
+    }
   }
 }

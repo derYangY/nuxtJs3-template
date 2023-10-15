@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 import { InitApp } from '~/utils/initApp'
 
 InitApp()
@@ -24,4 +24,14 @@ body {
 .global-text {
   @apply text-gray-900 dark:text-gray-50;
 }
-</style>
+</style> -->
+
+<template>
+  <div>
+    <!-- 布局出口 -->
+    <NuxtLayout>
+      <!-- 路由出口 -->
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
+</template>
