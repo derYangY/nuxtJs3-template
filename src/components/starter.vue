@@ -40,7 +40,7 @@ const lists = computed<ILink[]>(() => [
             class="font-bold text-gray-900 hover:bg-gray-300 dark:text-white dark:hover:bg-gray-400"
             href="https://github.com/productdevbook"
           >
-            <UnoIcon class="i-ph-github-logo-duotone" />
+            <UnoIcon class="i-ph-github-logo-fill" />
           </a>
 
           <a
